@@ -125,45 +125,42 @@ router.post('/chat', async (req, res) => {
       if (entradas.length > 0) {
         responseText += 'ENTRADAS:<br>';
         entradas.forEach(item => {
-          responseText += `- ${item.nombre}: $${item.precio}<br>`;
+          responseText += `- ${item.nombre}: ${item.descripcion} - $${item.precio}<br>`;
         });
         responseText += '<br>';
-      } else {
+            } else {
         responseText += 'No hay entradas disponibles.<br><br>';
-      }
+            }
 
-      
-      if (gohan.length > 0) {
+            if (gohan.length > 0) {
         responseText += 'GOHAN:<br>';
         gohan.forEach(item => {
-          responseText += `- ${item.nombre}: $${item.precio}<br>`;
+          responseText += `- ${item.nombre}: ${item.descripcion} - $${item.precio}<br>`;
         });
         responseText += '<br>';
-      } else {
+            } else {
         responseText += 'No hay opciones de gohan disponibles.<br><br>';
-      }
+            }
 
-      
-      if (rolls.length > 0) {
+            if (rolls.length > 0) {
         responseText += 'ROLLS:<br>';
         rolls.forEach(item => {
-          responseText += `- ${item.nombre}: $${item.precio}<br>` ;
+          responseText += `- ${item.nombre}: ${item.descripcion} - $${item.precio}<br>`;
         });
         responseText += '<br>';
-      } else {
+            } else {
         responseText += 'No hay rolls disponibles.<br><br>';
-      }
+            }
 
-      
-      if (combos.length > 0) {
+            if (combos.length > 0) {
         responseText += 'COMBOS:<br>';
         combos.forEach(item => {
-          responseText += `- ${item.nombre}: $${item.precio}<br>`;
+          responseText += `- ${item.nombre}: ${item.descripcion} - $${item.precio}<br>`;
         });
         responseText += '<br>';
-      } else {
+            } else {
         responseText += 'No hay combos disponibles.<br><br>';
-      }
+            }
 
       
       
@@ -200,7 +197,7 @@ router.post('/chat', async (req, res) => {
 
       let responseText = 'Por favor, selecciona un número del menú para añadir al pedido:<br>';
       menu.forEach((item, index) => {
-        responseText += `${index + 1}. ${item.nombre} - $${item.precio} (${item.categoria})<br>`;
+        responseText += `${index + 1}. ${item.nombre} - ${item.descripcion} - $${item.precio} (${item.categoria})<br>`;
       });
 
       return res.json({ reply: responseText });
