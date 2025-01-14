@@ -1,6 +1,6 @@
 import React, { useState , useEffect } from 'react';
 import axios from 'axios';
-import icon from '../icons/sushi.png'; // Asegúrate de colocar la ruta correcta al archivo de ícono
+import icon from '../icons/sushi.png'; 
 
 function ChatBotInterface() {
   const [messages, setMessages] = useState([]);
@@ -27,14 +27,13 @@ function ChatBotInterface() {
       }
     };
   
-    fetchWelcomeMessage(); // Llama a la función para cargar el mensaje de bienvenida
+    fetchWelcomeMessage(); 
   }, []);
   
 
   const handleSend = async () => {
     if (!input.trim()) return;
 
-    // Agregar el mensaje del usuario al estado
     setMessages((prevMessages) => [...prevMessages, { text: input, sender: 'user' }]);
 
     try {
@@ -42,7 +41,7 @@ function ChatBotInterface() {
       
       const response = await axios.post('http://localhost:3001/api/chat', { message: input.replace(/\n/g, '<br>') });
 
-      // Agregar la respuesta del bot al estado
+      
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: response.data.reply, sender: 'bot' },

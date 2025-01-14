@@ -16,7 +16,7 @@
   overflow-y: auto;
   flex-grow: 1;
   padding: 10px;
-  height: calc(100vh - 100px); /* Altura restante después del header y input area */
+  height: calc(100vh - 100px); 
   margin-top: 0px; 
   margin-bottom: 190px;
   background-image: url('./icons/Logo.png');
@@ -156,5 +156,5 @@ footer p {
 }
 
 body {
-  overflow: hidden; /* Evita el desplazamiento en el body */
+  overflow: hidden; 
 }

@@ -1,6 +1,6 @@
 const express = require('express');
 const { Entrada, Gohan, Roll, Combo } = require('../modelos/menu');
-const Pedido = require('../modelos/pedidos'); // Modelo de pedidos
+const Pedido = require('../modelos/pedidos');
 
 const router = express.Router();
 
@@ -8,7 +8,7 @@ const estados = {}; // Para almacenar estados temporales de los usuarios
 
 router.post('/chat', async (req, res) => {
   const { message } = req.body;
-  const userId = req.ip; // Usa la IP como identificador simple del usuario
+  const userId = req.ip;
   const lowerMessage = message.toLowerCase();
 
   try {
@@ -16,7 +16,7 @@ router.post('/chat', async (req, res) => {
       return res.status(400).json({ reply: 'El mensaje está vacío. Por favor, escribe algo.' });
     }
     
-    // Manejar estados de conversación
+    
     if (estados[userId]) {
       const userState = estados[userId];
 
@@ -121,7 +121,7 @@ router.post('/chat', async (req, res) => {
 
       let responseText = 'Aquí tienes nuestro menú:<br><br>';
 
-      // Si hay entradas
+      
       if (entradas.length > 0) {
         responseText += 'ENTRADAS:<br>';
         entradas.forEach(item => {
@@ -132,7 +132,7 @@ router.post('/chat', async (req, res) => {
         responseText += 'No hay entradas disponibles.<br><br>';
       }
 
-      // Si hay gohan
+      
       if (gohan.length > 0) {
         responseText += 'GOHAN:<br>';
         gohan.forEach(item => {
@@ -143,7 +143,7 @@ router.post('/chat', async (req, res) => {
         responseText += 'No hay opciones de gohan disponibles.<br><br>';
       }
 
-      // Si hay rolls
+      
       if (rolls.length > 0) {
         responseText += 'ROLLS:<br>';
         rolls.forEach(item => {
@@ -154,7 +154,7 @@ router.post('/chat', async (req, res) => {
         responseText += 'No hay rolls disponibles.<br><br>';
       }
 
-      // Si hay combos
+      
       if (combos.length > 0) {
         responseText += 'COMBOS:<br>';
         combos.forEach(item => {
@@ -214,10 +214,12 @@ router.post('/chat', async (req, res) => {
   }
 });
 router.post('/reset', (req, res) => {
-  const userId = req.ip; // Identifica al usuario por su IP
+  const userId = req.ip; 
   delete estados[userId]; // Limpia el estado del usuario
   return res.json({ message: 'Estado reiniciado exitosamente.' });
 });
+
+//Mensaje de bienvenida
 router.get('/chat', (req, res) => {
    return res.json({reply: 'Bienvenido al chatbot de Sakura Sushi Bar. Puedes escribir "mostrar menú" para ver el menú o "tomar pedido" para iniciar un pedido. También puedes preguntarme ¿están abiertos?' });
 });
