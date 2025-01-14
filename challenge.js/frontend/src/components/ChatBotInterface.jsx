@@ -9,7 +9,7 @@ function ChatBotInterface() {
   useEffect(() => {
     const resetState = async () => {
       try {
-        await axios.post('http://localhost:3000/api/reset');
+        await axios.post('http://localhost:3001/api/reset');
       } catch (error) {
         console.error('Error al reiniciar el estado:', error);
       }
@@ -20,7 +20,7 @@ function ChatBotInterface() {
   useEffect(() => {
     const fetchWelcomeMessage = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/chat');
+        const response = await axios.get('http://localhost:3001/api/chat');
         setMessages([{ text: response.data.reply, sender: 'bot' }]);
       } catch (error) {
         console.error('Error al obtener el mensaje de bienvenida:', error);
@@ -40,7 +40,7 @@ function ChatBotInterface() {
     try {
       // Enviar el mensaje al backend
       
-      const response = await axios.post('http://localhost:3000/api/chat', { message: input.replace(/\n/g, '<br>') });
+      const response = await axios.post('http://localhost:3001/api/chat', { message: input.replace(/\n/g, '<br>') });
 
       // Agregar la respuesta del bot al estado
       setMessages((prevMessages) => [

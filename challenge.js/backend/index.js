@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 
 // levantar servidor
 if (!module.parent) { // si no es llamado por otro módulo, es decir, si es el módulo principal -> levantamos el servidor
-  const port = process.env.PORT || 3000; // en producción se usa el puerto de la variable de entorno PORT
+  const port = process.env.PORT || 3001; // en producción se usa el puerto de la variable de entorno PORT
   app.locals.fechaInicio = new Date();
   app.listen(port, () => {
     console.log(`sitio escuchando en el puerto ${port}`);

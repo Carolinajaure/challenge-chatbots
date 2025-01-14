@@ -219,7 +219,7 @@ router.post('/reset', (req, res) => {
   return res.json({ message: 'Estado reiniciado exitosamente.' });
 });
 router.get('/chat', (req, res) => {
-   return res.json({reply: 'Bienvenido al chatbot de pedidos. Puedes escribir "mostrar menú" para ver el menú o "tomar pedido" para iniciar un pedido. También puedes preguntarme ¿están abiertos?' });
+   return res.json({reply: 'Bienvenido al chatbot de Sakura Sushi Bar. Puedes escribir "mostrar menú" para ver el menú o "tomar pedido" para iniciar un pedido. También puedes preguntarme ¿están abiertos?' });
 });
 
 
