@@ -1,3 +1,11 @@
+## Instalación de Dependencias
+
+Para instalar las dependencias necesarias, ejecuta el siguiente comando en el directorio `./challenge.js/backend`:
+
+```bash
+npm install
+```
+
 ## Para ejecutar el frontend
 
 1. En la terminal, navega al directorio `./challenge.js/frontend`.

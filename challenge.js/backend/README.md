@@ -1,8 +1,16 @@
 # challenge-chatbots
+## Instalación de Dependencias
+
+Para instalar las dependencias necesarias, ejecuta el siguiente comando en el directorio `./challenge.js/backend`:
+
+```bash
+npm install
+```
+
 ## Para correr backend:
 
 1. Abrir el archivo `./backend/index.js`
-2. Presionar `F5`
+2. Presionar `F5` 
 
 Otra forma en la terminal:
 1. Moverse al directorio `backend` con `cd .\challenge.js\backend`
